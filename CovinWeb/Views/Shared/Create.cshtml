@@ -1,0 +1,58 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model BELayer.Vaccinated
+@{ 
+    ViewData["Title"] = "Create Vaccinated";
+}
+<h2> Vaccinated Employee Details</h2>
+<hr />  
+<form asp-action="Create" class="form-horizontal">
+      <div class="form-group">
+          <label class="control-label"> Emp_Code </label>
+          <input asp-for="emp_code" class="form-group"/>
+          <span asp-validation-for="emp_code" class="text-danger"> </span>
+      </div>
+      <div class="form-group">
+          <label class="control-label">Vaccine_Type</label>
+          <select>
+              <option value="Covaxin">Covaxin</option>
+              <option value="Covisheild">Covisheild</option>
+              <option value="Sputnik">Sputnik</option>
+          </select>
+          
+          <span asp-validation-for="Vaccine_Type" class="text-danger">  </span>
+      </div>
+      <div class="form-group">
+          <label class="control-label">Dose_No</label>
+          <input asp-for="Dose_No" class="form-group" />
+          <span asp-validation-for="Dose_No" class="text-danger">  </span>
+      </div>
+      <div class="form-group">
+          <label class="control-label">Vaccine_Date</label>
+          <input type="datetime-local"  value="2021-01-01T12:00" />
+          <span asp-validation-for="Vaccine_Date" class="text-danger">  </span>
+      </div>
+      <div class="form-group">
+          <label class="control-label">Vaccine_Location</label>
+          <input asp-for="Vaccine_Location" class="form-group" />
+          <span asp-validation-for="Vaccine_Location" class="text-danger">  </span>
+      </div>
+      <div class="form-group">
+          <label class="control-label">Vaccine_Certificate</label>
+          <input asp-for="Vaccine_Certificate" class="form-group" />
+          <span asp-validation-for="Vaccine_Certificate" class="text-danger">  </span>
+          
+      </div>
+      <div class="form-group">
+          <input type="submit"  value="Submit" class="btn bg-primary" />
+      </div>
+</form>
+@{       
+    if (TempData["Msg"] != null)
+            {
+                 <script>
+                     alert('@TempData["msg"]')
+                 </script>
+            }
+}
